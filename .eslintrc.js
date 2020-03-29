@@ -16,7 +16,6 @@ module.exports = {
     'no-restricted-imports': [
       2,
       {
-        patterns: ['*.css', '!styles/main.css'],
         paths: ['lodash'],
       },
     ],

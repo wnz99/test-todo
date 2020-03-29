@@ -6,3 +6,5 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@custom-media --desktop (min-width: 640px);

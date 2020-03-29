@@ -2,7 +2,6 @@
 import { handleActions } from 'redux-actions';
 import produce from 'immer';
 import actions from '../../actions';
-// import u from 'updeep';
 
 export const INITIAL_STATE = {
   last: {
