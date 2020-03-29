@@ -1,4 +1,4 @@
-import './index.scss';
+// import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createEpicMiddleware } from 'redux-observable';
@@ -25,8 +25,10 @@ const composeEnhancers = enhancers => {
 
     return composeFn(enhancers, Reactotron.createEnhancer());
   }
+
   return compose(enhancers);
 };
+
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
 const store = createStore(rootReducer, enhancer);

@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleButton component should render correctly 1`] = `
+<SimpleButton
+  className=""
+  icon="play"
+  intent="primary"
+  isActive={false}
+  onClick={[MockFunction]}
+>
+  <div
+    className="btn btn-primary"
+    onClick={[MockFunction]}
+    onKeyDown={[MockFunction]}
+    role="button"
+    tabIndex={0}
+  >
+    <span
+      className="btn-text"
+    >
+      Button
+    </span>
+    <span
+      className="btn-img"
+    >
+      <Play
+        color="currentColor"
+        size="24"
+      >
+        <svg
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="5 3 19 12 5 21 5 3"
+          />
+        </svg>
+      </Play>
+    </span>
+  </div>
+  <style>
+    
+          .btn {
+            line-height: 1.5715;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            white-space: nowrap;
+            text-align: center;
+            background-image: none;
+            border: 1px solid transparent;
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+            cursor: pointer;
+            -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            height: 32px;
+            padding: 4px 15px;
+            font-size: 14px;
+            border-radius: 2px;
+            color: rgba(0, 0, 0, 0.65);
+            background-color: #fff;
+            border-color: #d9d9d9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .btn:focus {
+            outline: 0;
+          }
+          .btn:active {
+            outline: 0;
+          }
+
+          .btn-primary {
+            border-color: #1890ff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            opacity: 0.8;
+          }
+          .btn-primary:hover {
+            opacity: 1;
+          }
+          .btn-danger {
+            border-color: #ff7875;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            opacity: 0.8;
+          }
+          .btn-danger:hover {
+            opacity: 1;
+          }
+          .btn-img {
+            display: flex;
+            align-items: center;
+          }
+          .btn-text {
+            display: none;
+          }
+          @media (--desktop) {
+            .btn {
+              min-width: 100px;
+            }
+            .btn-text {
+              display: inline;
+            }
+          }
+        
+  </style>
+  <style>
+    
+          .btn-primary {
+            color: #40a9ff;
+            background-color: #fff;
+          }
+          .btn-danger {
+            color: #ff4d4f;
+            background-color: #fff;
+          }
+        
+  </style>
+</SimpleButton>
+`;

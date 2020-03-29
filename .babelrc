@@ -1,4 +1,40 @@
+// {
+//   "plugins": [
+//     "react-hot-loader/babel",
+//     [
+//       "styled-jsx/babel",
+//       {
+//         "plugins": ["styled-jsx-plugin-postcss"]
+//       }
+//     ]
+//   ],
+//   "presets": ["@babel/preset-env", "@babel/preset-react"]
+// }
+
 {
-  "plugins": ["react-hot-loader/babel"],
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
+  // "presets": ["@babel/preset-env", "@babel/preset-react"],
+  // "plugins": [
+  //   ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-postcss"] }]
+  // ],
+  "env": {
+    "production": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
+        ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-postcss"] }]
+      ]
+    },
+    "development": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
+        ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-postcss"] }]
+      ]
+    },
+    "test": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"],
+      "plugins": [
+        // ["styled-jsx/babel-test"],
+        ["styled-jsx/babel-test", { "plugins": ["styled-jsx-plugin-postcss"] }]
+      ]
+    }
+  }
 }
