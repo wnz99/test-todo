@@ -1,24 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import Actions from '../../store/actions';
 
 import SimpleButton from '../SimpleButton';
-import { ButtonGroup } from '../../const/commonStyles';
-import { onSaveTask } from '../../../utils/forms';
-
-const { tasks } = Actions;
+import { buttonGroupCss } from '../../const/commonStyles';
 
 const renderErrors = errors =>
   Object.values(errors).map(error => {
     return <div key={error.message}>{error.message}</div>;
   });
 
-const AddToDoItem = ({ onCancel }) => {
-  const dispatch = useDispatch();
+const ToDoItemAdd = ({ item, onCancel, onSubmit }) => {
   const { register, handleSubmit, errors } = useForm();
+  const { name, description, id } = item;
 
   return (
     <>
@@ -26,7 +21,7 @@ const AddToDoItem = ({ onCancel }) => {
         <header>
           <h3>Enter item details</h3>
         </header>
-        <form onSubmit={onSaveTask(dispatch, tasks.add)}>
+        <form>
           <div className="item-add-form-entry">
             <label className="item-add-form-label" htmlFor="taskName">
               Name
@@ -37,6 +32,7 @@ const AddToDoItem = ({ onCancel }) => {
               id="taskName"
               name="taskName"
               ref={register({ required: 'Name cannot be empty' })}
+              defaultValue={name}
             />
           </div>
           <div className="item-add-form-entry">
@@ -48,22 +44,30 @@ const AddToDoItem = ({ onCancel }) => {
               id="taskDescription"
               name="taskDescription"
               ref={register({ required: 'Description cannot be empty' })}
+              defaultValue={description}
             />
           </div>
+          <input
+            type="hidden"
+            className="item-add-from-input"
+            name="taskId"
+            value={id}
+            ref={register}
+          />
           <div className="item-add-form-controls">
             <SimpleButton
-              className={ButtonGroup.className}
+              className={buttonGroupCss.className}
               responsive={false}
               onClick={onCancel}
             >
               Cancel
             </SimpleButton>
             <SimpleButton
-              className={ButtonGroup.className}
+              className={buttonGroupCss.className}
               responsive={false}
               onClick={handleSubmit(data => {
-                onSaveTask(dispatch, tasks.add)(data);
-                // onCancel();
+                onSubmit(data);
+                onCancel();
               })}
             >
               Save
@@ -146,12 +150,16 @@ const AddToDoItem = ({ onCancel }) => {
   );
 };
 
-AddToDoItem.propTypes = {
-  onCancel: PropTypes.func,
+ToDoItemAdd.propTypes = {
+  item: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  onCancel: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
-AddToDoItem.defaultProps = {
-  onCancel: () => {},
+ToDoItemAdd.defaultProps = {
+  item: {},
 };
 
-export default AddToDoItem;
+export default ToDoItemAdd;

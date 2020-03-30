@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import SimpleButton from '../SimpleButton';
-import { ButtonGroup } from '../../const/commonStyles';
+import { buttonGroupCss } from '../../const/commonStyles';
 import ToolTip from '../ToolTip';
 
 const Controls = ({ onAddItem }) => {
@@ -17,7 +17,7 @@ const Controls = ({ onAddItem }) => {
           intent="danger"
           active={isRecording}
           onClick={() => setIsRecording(status => !status)}
-          className={ButtonGroup.className}
+          className={buttonGroupCss.className}
         >
           Record
         </SimpleButton>
@@ -29,7 +29,7 @@ const Controls = ({ onAddItem }) => {
           intent="primary"
           active={isPlaying}
           onClick={() => setIsPlaying(status => !status)}
-          className={ButtonGroup.className}
+          className={buttonGroupCss.className}
         >
           Play
         </SimpleButton>
@@ -40,13 +40,13 @@ const Controls = ({ onAddItem }) => {
           icon="plus"
           intent="none"
           onClick={onAddItem}
-          className={ButtonGroup.className}
+          className={buttonGroupCss.className}
         >
           New
         </SimpleButton>
       </ToolTip>
 
-      {ButtonGroup.styles}
+      {buttonGroupCss.styles}
     </>
   );
 };

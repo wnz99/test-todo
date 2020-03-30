@@ -6,6 +6,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "immer": "^6.0.2",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "npm:@hot-loader/react-dom@^16.13.0",
@@ -53,6 +55,7 @@
     "husky": "^4.2.3",
     "jest": "^25.2.3",
     "jest-extended": "^0.11.5",
+    "lint-staged": "^10.0.10",
     "mockdate": "^2.0.5",
     "node-sass": "^4.13.1",
     "postcss-custom-media": "^7.0.8",

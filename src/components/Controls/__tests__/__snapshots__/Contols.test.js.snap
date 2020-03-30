@@ -10,6 +10,7 @@ exports[`Controls component should render correctly 1`] = `
       className=""
       icon="circle"
       intent="danger"
+      minimal={false}
       onClick={[Function]}
       responsive={true}
     >
@@ -24,6 +25,7 @@ exports[`Controls component should render correctly 1`] = `
       className=""
       icon="play"
       intent="primary"
+      minimal={false}
       onClick={[Function]}
       responsive={true}
     >
@@ -38,6 +40,7 @@ exports[`Controls component should render correctly 1`] = `
       className=""
       icon="plus"
       intent="none"
+      minimal={false}
       onClick={[MockFunction]}
       responsive={true}
     >
