@@ -15,7 +15,8 @@ const SimpleButton = ({
   children,
   className,
   onClick,
-  isActive,
+  active,
+  responsive,
 }) => {
   const IconImg = Icon[icon];
 
@@ -54,7 +55,7 @@ const SimpleButton = ({
             -ms-touch-action: manipulation;
             touch-action: manipulation;
             height: 32px;
-            padding: 4px 15px;
+            padding: 2px 10px;
             font-size: 14px;
             border-radius: 2px;
             color: rgba(0, 0, 0, 0.65);
@@ -63,6 +64,7 @@ const SimpleButton = ({
             display: flex;
             align-items: center;
             justify-content: space-between;
+            opacity: 0.8;
           }
           .btn:focus {
             outline: 0;
@@ -70,7 +72,9 @@ const SimpleButton = ({
           .btn:active {
             outline: 0;
           }
-
+          .btn:hover {
+            opacity: 1;
+          }
           .btn-primary {
             border-color: #1890ff;
             text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -95,8 +99,23 @@ const SimpleButton = ({
             display: flex;
             align-items: center;
           }
+        `}
+      </style>
+      <style jsx>
+        {`
+          .btn {
+            min-width: ${responsive ? '0px' : '100px'};
+          }
           .btn-text {
-            display: none;
+            display: ${responsive ? 'none' : 'inline'};
+          }
+          .btn-primary {
+            color: ${active ? '#fff' : '#40a9ff'};
+            background-color: ${active ? '#40a9ff' : '#fff'};
+          }
+          .btn-danger {
+            color: ${active ? '#fff' : '#ff4d4f'};
+            background-color: ${active ? '#ff4d4f' : '#fff'};
           }
           @media (--desktop) {
             .btn {
@@ -104,19 +123,11 @@ const SimpleButton = ({
             }
             .btn-text {
               display: inline;
+              width: 100%;
             }
-          }
-        `}
-      </style>
-      <style jsx>
-        {`
-          .btn-primary {
-            color: ${isActive ? '#fff' : '#40a9ff'};
-            background-color: ${isActive ? '#40a9ff' : '#fff'};
-          }
-          .btn-danger {
-            color: ${isActive ? '#fff' : '#ff4d4f'};
-            background-color: ${isActive ? '#ff4d4f' : '#fff'};
+            .btn-img {
+              display: none;
+            }
           }
         `}
       </style>
@@ -125,19 +136,22 @@ const SimpleButton = ({
 };
 
 SimpleButton.propTypes = {
-  icon: PropTypes.string.isRequired,
+  active: PropTypes.bool,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  icon: PropTypes.string,
   intent: PropTypes.oneOf(Object.values(Intent)),
   onClick: PropTypes.func,
-  isActive: PropTypes.bool,
+  responsive: PropTypes.bool,
 };
 
 SimpleButton.defaultProps = {
-  intent: Intent.NONE,
+  active: false,
   className: '',
+  icon: null,
+  intent: Intent.NONE,
   onClick: () => {},
-  isActive: false,
+  responsive: true,
 };
 
 export default SimpleButton;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls component should render correctly 1`] = `
+<Fragment>
+  <ToolTip
+    content="Record"
+  >
+    <SimpleButton
+      active={false}
+      className=""
+      icon="circle"
+      intent="danger"
+      onClick={[Function]}
+      responsive={true}
+    >
+      Record
+    </SimpleButton>
+  </ToolTip>
+  <ToolTip
+    content="Play"
+  >
+    <SimpleButton
+      active={false}
+      className=""
+      icon="play"
+      intent="primary"
+      onClick={[Function]}
+      responsive={true}
+    >
+      Play
+    </SimpleButton>
+  </ToolTip>
+  <ToolTip
+    content="New"
+  >
+    <SimpleButton
+      active={false}
+      className=""
+      icon="plus"
+      intent="none"
+      onClick={[MockFunction]}
+      responsive={true}
+    >
+      New
+    </SimpleButton>
+  </ToolTip>
+</Fragment>
+`;

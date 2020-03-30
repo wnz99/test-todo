@@ -2,11 +2,12 @@
 
 exports[`SimpleButton component should render correctly 1`] = `
 <SimpleButton
+  active={false}
   className=""
   icon="play"
   intent="primary"
-  isActive={false}
   onClick={[MockFunction]}
+  responsive={true}
 >
   <div
     className="btn btn-primary"
@@ -68,7 +69,7 @@ exports[`SimpleButton component should render correctly 1`] = `
             -ms-touch-action: manipulation;
             touch-action: manipulation;
             height: 32px;
-            padding: 4px 15px;
+            padding: 2px 10px;
             font-size: 14px;
             border-radius: 2px;
             color: rgba(0, 0, 0, 0.65);
@@ -77,6 +78,7 @@ exports[`SimpleButton component should render correctly 1`] = `
             display: flex;
             align-items: center;
             justify-content: space-between;
+            opacity: 0.8;
           }
           .btn:focus {
             outline: 0;
@@ -84,7 +86,9 @@ exports[`SimpleButton component should render correctly 1`] = `
           .btn:active {
             outline: 0;
           }
-
+          .btn:hover {
+            opacity: 1;
+          }
           .btn-primary {
             border-color: #1890ff;
             text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -109,21 +113,16 @@ exports[`SimpleButton component should render correctly 1`] = `
             display: flex;
             align-items: center;
           }
-          .btn-text {
-            display: none;
-          }
-          @media (--desktop) {
-            .btn {
-              min-width: 100px;
-            }
-            .btn-text {
-              display: inline;
-            }
-          }
         
   </style>
   <style>
     
+          .btn {
+            min-width: 0px;
+          }
+          .btn-text {
+            display: none;
+          }
           .btn-primary {
             color: #40a9ff;
             background-color: #fff;
@@ -131,6 +130,18 @@ exports[`SimpleButton component should render correctly 1`] = `
           .btn-danger {
             color: #ff4d4f;
             background-color: #fff;
+          }
+          @media (--desktop) {
+            .btn {
+              min-width: 100px;
+            }
+            .btn-text {
+              display: inline;
+              width: 100%;
+            }
+            .btn-img {
+              display: none;
+            }
           }
         
   </style>

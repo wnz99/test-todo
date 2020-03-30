@@ -18,7 +18,7 @@ describe('SimpleButton component', () => {
       intent: 'primary',
       className: '',
       onClick: jest.fn(),
-      isActive: false,
+      active: false,
     };
 
     expect(
@@ -32,7 +32,7 @@ describe('SimpleButton component', () => {
       intent: 'primary',
       className: '',
       onClick: jest.fn(),
-      isActive: false,
+      active: false,
     };
 
     const wrapper = mount(<SimpleButton {...props}>Button</SimpleButton>);
@@ -45,7 +45,7 @@ describe('SimpleButton component', () => {
       intent: 'primary',
       className: '',
       onClick: jest.fn(),
-      isActive: false,
+      active: false,
     };
 
     const wrapper = mount(<SimpleButton {...props}>Button</SimpleButton>);
@@ -60,7 +60,7 @@ describe('SimpleButton component', () => {
       intent: 'danger',
       className: '',
       onClick: jest.fn(),
-      isActive: false,
+      active: false,
     };
 
     const wrapper = mount(<SimpleButton {...props}>Button</SimpleButton>);
@@ -75,7 +75,7 @@ describe('SimpleButton component', () => {
       intent: 'danger',
       className: '',
       onClick: jest.fn(),
-      isActive: false,
+      active: false,
     };
 
     const wrapper = mount(<SimpleButton {...props}>Button</SimpleButton>);

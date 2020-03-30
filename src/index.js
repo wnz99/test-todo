@@ -1,4 +1,4 @@
-// import './index.css';
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createEpicMiddleware } from 'redux-observable';
