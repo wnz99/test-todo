@@ -4,9 +4,10 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import App from '../App';
+import { mockInitialState } from './__fixtures__/mockInitialState';
 
 const mockStore = configureStore();
-const store = mockStore({});
+const store = mockStore(mockInitialState);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

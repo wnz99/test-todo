@@ -6,6 +6,7 @@ exports[`SimpleButton component should render correctly 1`] = `
   className=""
   icon="play"
   intent="primary"
+  minimal={false}
   onClick={[MockFunction]}
   responsive={true}
 >
@@ -112,6 +113,10 @@ exports[`SimpleButton component should render correctly 1`] = `
           .btn-img {
             display: flex;
             align-items: center;
+          }
+          .minimal {
+            border: none;
+            box-shadow: none;
           }
         
   </style>

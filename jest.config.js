@@ -25,6 +25,7 @@ module.exports = {
   collectCoverageFrom: [
     './**/*.{js,jsx,mjs}',
     '!./**/index.{js,jsx,ts,tsx}',
+    '!./**/__fixtures__/*.js',
     '!./setupTests.js',
   ],
 
@@ -134,7 +135,6 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    '**/__tests__/**/*.js?(x)',
     '**/?(*.)+(spec|test).js?(x)',
     '!**/cypress/**/*.js',
     '!*config.js',

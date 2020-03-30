@@ -2,7 +2,8 @@ import { hot } from 'react-hot-loader/root';
 import React, { useState } from 'react';
 
 import Controls from './components/Controls';
-import AddToDoItem from './components/AddToDoItem';
+import ToDoItemAdd from './components/ToDoItemAdd';
+import ToDoList from './components/ToDoList';
 
 const App = () => {
   const [showAddSection, setShowAddSection] = useState(false);
@@ -18,12 +19,14 @@ const App = () => {
           </section>
           <section className={showAddSection ? 'fadein' : 'fadeout'}>
             {showAddSection && (
-              <AddToDoItem
+              <ToDoItemAdd
                 onCancel={() => setShowAddSection(status => !status)}
               />
             )}
           </section>
-          <section>This is an app</section>
+          <section>
+            <ToDoList />
+          </section>
         </main>
       </div>
 
@@ -60,6 +63,7 @@ const App = () => {
           }
           .fadein {
             opacity: 1;
+            padding-bottom: 24px;
           }
         `}
       </style>

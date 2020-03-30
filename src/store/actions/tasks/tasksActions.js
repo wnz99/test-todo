@@ -2,10 +2,9 @@ import { createActions } from 'redux-actions';
 
 const tasks = createActions(
   {
-    ADD: task => {
-      console.log(task);
-      return task;
-    },
+    CREATE: task => task,
+    UPDATE: task => task,
+    DELETE: id => id,
   },
   { namespace: '_' }
 );

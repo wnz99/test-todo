@@ -17,6 +17,7 @@ const SimpleButton = ({
   onClick,
   active,
   responsive,
+  minimal,
 }) => {
   const IconImg = Icon[icon];
 
@@ -27,7 +28,12 @@ const SimpleButton = ({
         onClick={onClick}
         onKeyDown={onClick}
         tabIndex={0}
-        className={classNames('btn', buttonIntent[intent], className)}
+        className={classNames(
+          'btn',
+          buttonIntent[intent],
+          minimal ? 'minimal' : '',
+          className
+        )}
       >
         <span className="btn-text">{children}</span>
         <span className="btn-img">{icon && <IconImg />}</span>
@@ -99,6 +105,10 @@ const SimpleButton = ({
             display: flex;
             align-items: center;
           }
+          .minimal {
+            border: none;
+            box-shadow: none;
+          }
         `}
       </style>
       <style jsx>
@@ -141,6 +151,7 @@ SimpleButton.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   intent: PropTypes.oneOf(Object.values(Intent)),
+  minimal: PropTypes.bool,
   onClick: PropTypes.func,
   responsive: PropTypes.bool,
 };
@@ -150,6 +161,7 @@ SimpleButton.defaultProps = {
   className: '',
   icon: null,
   intent: Intent.NONE,
+  minimal: false,
   onClick: () => {},
   responsive: true,
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import css from 'styled-jsx/css';
 
-export const ButtonGroup = css.resolve`
+export const buttonGroupCss = css.resolve`
   div {
     margin: 5px;
   }
