@@ -81,7 +81,7 @@ const tasksReducer = handleActions(
       }
     ),
   },
-  INITIAL_STATE
+  {}
 );
 
 export default tasksReducer;
