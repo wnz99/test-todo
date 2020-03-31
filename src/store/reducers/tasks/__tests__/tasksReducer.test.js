@@ -2,13 +2,13 @@ import omit from 'lodash/omit';
 import tasksReducer, { INITIAL_STATE } from '../tasksReducer';
 import actions from '../../../actions/tasks';
 import * as utils from '../../../../utils';
-import pushToTasksHistory from '../../../../utils/pushToTasksHistory';
+import pushToHistory from '../../../../utils/pushToHistory';
 
 jest.mock('../../../../utils', () => ({
-  pushToTasksHistory: jest.fn(),
+  pushToHistory: jest.fn(),
 }));
 
-utils.pushToTasksHistory.mockImplementation(pushToTasksHistory);
+utils.pushToHistory.mockImplementation(pushToHistory);
 
 describe('tasks reducer', () => {
   it('should add a task', () => {
@@ -693,6 +693,6 @@ describe('tasks reducer', () => {
     nextState = tasksReducer(nextState, addTaskAction);
 
     expect(nextState).toEqual(expecteState);
-    expect(utils.pushToTasksHistory).toHaveBeenCalledTimes(5);
+    expect(utils.pushToHistory).toHaveBeenCalledTimes(5);
   });
 });

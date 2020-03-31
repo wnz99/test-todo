@@ -4,7 +4,7 @@ import produce from 'immer';
 import omit from 'lodash/omit';
 
 import actions from '../../actions';
-import { pushToTasksHistory } from '../../../utils';
+import { pushToHistory } from '../../../utils';
 import { mockInitialState } from '../../../__tests__/__fixtures__/mockInitialState';
 
 export const INITIAL_STATE_DEV = mockInitialState;
@@ -57,7 +57,7 @@ const tasksReducer = handleActions(
       const { payload } = action;
 
       if (payload) {
-        draft.history = pushToTasksHistory(draft.history, draft);
+        draft.history = pushToHistory(draft.history, draft);
       }
 
       draft.status = { ...draft.status, isRecording: payload };
@@ -76,7 +76,7 @@ const tasksReducer = handleActions(
     [combineActions(tasks.create, tasks.update, tasks.delete)]: produce(
       (draft, action) => {
         if (draft.status.isRecording) {
-          draft.history = pushToTasksHistory(draft.history, action);
+          draft.history = pushToHistory(draft.history, action);
         }
       }
     ),
