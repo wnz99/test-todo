@@ -15,12 +15,12 @@ const App = () => {
   const [showAddSection, setShowAddSection] = useState(true);
 
   return (
-    <>
+    <div>
       <div className="app">
         <header>
           <h1>TO-DOs App</h1>
         </header>
-        <main role="main">
+        <main role="main" className="app-container">
           <section className="controls">
             <Controls onAddItem={() => setShowAddSection(status => !status)} />
           </section>
@@ -54,6 +54,12 @@ const App = () => {
             justify-content: flex-end;
             padding-bottom: 5px;
           }
+          @media (--desktop) {
+            .app {
+              width: 900px;
+              margin: auto;
+            }
+          }
         `}
       </style>
       <style jsx>
@@ -75,7 +81,7 @@ const App = () => {
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 

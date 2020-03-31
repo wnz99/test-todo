@@ -44,13 +44,13 @@ describe('tasks actions', () => {
 
     expect(action).toEqual(expecteAction);
   });
-  it('should create an action to make a snapshot', () => {
+  it('should create an action to restore a snapshot', () => {
     const expecteAction = {
-      type: 'SNAPSHOT_CREATE',
+      type: 'SNAPSHOT_RESTORE',
       payload: undefined,
     };
 
-    const action = tasks.snapshot.create();
+    const action = tasks.snapshot.restore();
 
     expect(action).toEqual(expecteAction);
   });
@@ -64,13 +64,33 @@ describe('tasks actions', () => {
 
     expect(action).toEqual(expecteAction);
   });
-  it('should delete history', () => {
+  it('should create action to delete history', () => {
     const expecteAction = {
       type: 'HISTORY_DELETE',
       payload: undefined,
     };
 
     const action = tasks.history.delete();
+
+    expect(action).toEqual(expecteAction);
+  });
+  it('should create action to start playing', () => {
+    const expecteAction = {
+      type: 'STATUS_PLAY',
+      payload: undefined,
+    };
+
+    const action = tasks.status.play();
+
+    expect(action).toEqual(expecteAction);
+  });
+  it('should create action to stop playing', () => {
+    const expecteAction = {
+      type: 'STATUS_RECORD',
+      payload: undefined,
+    };
+
+    const action = tasks.status.record();
 
     expect(action).toEqual(expecteAction);
   });

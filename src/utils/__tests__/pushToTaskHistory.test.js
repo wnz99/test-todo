@@ -42,29 +42,31 @@ describe('pushToTasksHistory function', () => {
     const prevHistory = [];
 
     let list = [1, 2, 3];
+    let last = { a: 'a' };
 
     let expectedHistory = [
       {
         isSnapshot: true,
-        data: list,
+        data: { last, list },
       },
     ];
 
-    let nextHistory = pushToTasksHistory(prevHistory, list);
+    let nextHistory = pushToTasksHistory(prevHistory, { list, last });
 
     expect(nextHistory).toEqual(expectedHistory);
 
     list = [4, 5, 7];
+    last = { b: 'b' };
 
     expectedHistory = [
       ...expectedHistory,
       {
         isSnapshot: true,
-        data: list,
+        data: { last, list },
       },
     ];
 
-    nextHistory = pushToTasksHistory(nextHistory, list);
+    nextHistory = pushToTasksHistory(nextHistory, { list, last });
 
     expect(nextHistory).toEqual(expectedHistory);
   });

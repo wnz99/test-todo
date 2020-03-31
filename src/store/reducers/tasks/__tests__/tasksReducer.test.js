@@ -175,44 +175,22 @@ describe('tasks reducer', () => {
     expect(nextState).toEqual(expecteState);
   });
 
-  it('should set tasks status', () => {
-    let addTaskAction = {
-      type: actions.status.set,
-      payload: {
-        isPlaying: true,
-      },
+  it('should restore a snapshot', () => {
+    const readSnapshotAction = {
+      type: actions.snapshot.restore,
+      payload: { list: { list: 'list' }, last: { last: 'last' } },
     };
 
-    let expecteState = {
-      status: { isRecording: false, isPlaying: true },
+    const expecteState = {
+      status: { isRecording: false, isPlaying: false },
       history: [],
       last: {
-        id: 0,
-        createdAt: null,
+        last: 'last',
       },
-      list: {},
+      list: { list: 'list' },
     };
 
-    let nextState = tasksReducer(INITIAL_STATE, addTaskAction);
-    expect(nextState).toEqual(expecteState);
-
-    addTaskAction = {
-      type: actions.status.set,
-      payload: {
-        isRecording: true,
-      },
-    };
-
-    expecteState = {
-      ...expecteState,
-      status: {
-        ...expecteState.status,
-        isRecording: true,
-      },
-      history: [{ data: {}, isSnapshot: true }],
-    };
-
-    nextState = tasksReducer(nextState, addTaskAction);
+    const nextState = tasksReducer(INITIAL_STATE, readSnapshotAction);
     expect(nextState).toEqual(expecteState);
   });
 
@@ -274,16 +252,14 @@ describe('tasks reducer', () => {
     expect(nextState).toEqual(expecteState);
 
     const startRecordingAction = {
-      type: actions.status.set,
-      payload: {
-        isRecording: true,
-      },
+      type: actions.status.record,
+      payload: true,
     };
 
     const expectedHistory = [
       {
         isSnapshot: true,
-        data: nextState.list,
+        data: { list: nextState.list, last: nextState.last },
       },
     ];
 
@@ -370,16 +346,14 @@ describe('tasks reducer', () => {
     expect(nextState).toEqual(expecteState);
 
     const startRecordingAction = {
-      type: actions.status.set,
-      payload: {
-        isRecording: true,
-      },
+      type: actions.status.record,
+      payload: true,
     };
 
     const expectedHistory = [
       {
         isSnapshot: true,
-        data: nextState.list,
+        data: { list: nextState.list, last: nextState.last },
       },
     ];
 
@@ -485,16 +459,14 @@ describe('tasks reducer', () => {
 
     // Start recording
     const startRecordingAction = {
-      type: actions.status.set,
-      payload: {
-        isRecording: true,
-      },
+      type: actions.status.record,
+      payload: true,
     };
 
     let expectedHistory = [
       {
         isSnapshot: true,
-        data: nextState.list,
+        data: { list: nextState.list, last: nextState.last },
       },
     ];
 
@@ -666,10 +638,8 @@ describe('tasks reducer', () => {
 
     // Stop recording
     const stopRecordingAction = {
-      type: actions.status.set,
-      payload: {
-        isRecording: false,
-      },
+      type: actions.status.record,
+      payload: false,
     };
 
     expectedHistory = [

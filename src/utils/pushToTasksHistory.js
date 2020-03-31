@@ -1,8 +1,12 @@
 const pushToTasksHistory = (prevHistory, data) => {
   if (!data.type) {
+    const { list, last } = data;
     const historyEntry = {
       isSnapshot: true,
-      data,
+      data: {
+        list,
+        last,
+      },
     };
 
     return [...prevHistory, historyEntry];
