@@ -1,12 +1,19 @@
 import { hot } from 'react-hot-loader/root';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Controls from './components/Controls';
 import ToDoItemAdd from './components/ToDoItemAdd';
 import ToDoList from './components/ToDoList';
+import actions from './store/actions';
+import { onSaveTask } from './utils/forms';
+
+const { tasks } = actions;
 
 const App = () => {
-  const [showAddSection, setShowAddSection] = useState(false);
+  const dispatch = useDispatch();
+  const [showAddSection, setShowAddSection] = useState(true);
+
   return (
     <>
       <div className="app">
@@ -21,6 +28,7 @@ const App = () => {
             {showAddSection && (
               <ToDoItemAdd
                 onCancel={() => setShowAddSection(status => !status)}
+                onSubmit={data => onSaveTask(dispatch, tasks)(data)}
               />
             )}
           </section>

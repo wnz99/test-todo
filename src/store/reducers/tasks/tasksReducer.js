@@ -1,8 +1,10 @@
 /* eslint-disable no-param-reassign */
-import { handleActions } from 'redux-actions';
+import { handleActions, combineActions } from 'redux-actions';
 import produce from 'immer';
 import omit from 'lodash/omit';
+
 import actions from '../../actions';
+import { pushToTasksHistory } from '../../../utils';
 
 const items = {
   '1': {
@@ -29,24 +31,30 @@ const items = {
 };
 
 export const INITIAL_STATE_DEV = {
-  last: {
-    id: 0,
-    createdAt: null,
-  },
-  list: {},
-};
-
-export const INITIAL_STATE = {
+  status: { isRecording: false, isPlaying: false },
   last: {
     id: 3,
     createdAt: 1585554146,
   },
+  history: [],
   list: { ...items },
 };
 
+export const INITIAL_STATE = {
+  status: { isRecording: false, isPlaying: false },
+  last: {
+    id: 0,
+    createdAt: null,
+  },
+  history: [],
+  list: {},
+};
+
+const { tasks } = actions;
+
 const tasksReducer = handleActions(
   {
-    [actions.tasks.create]: produce((draft, action) => {
+    [tasks.create]: produce((draft, action) => {
       const {
         payload: { createdAt },
       } = action;
@@ -59,18 +67,37 @@ const tasksReducer = handleActions(
         ...action.payload,
       };
     }),
-    [actions.tasks.update]: produce((draft, action) => {
+    [tasks.update]: produce((draft, action) => {
       const {
         payload: { id },
       } = action;
 
       draft.list[id] = { ...draft.list[id], ...action.payload };
     }),
-    [actions.tasks.delete]: produce((draft, action) => {
-      const id = action.payload;
+    [tasks.delete]: produce((draft, action) => {
+      const { payload } = action;
 
-      draft.list = omit(draft.list, [id]);
+      draft.list = omit(draft.list, [payload]);
     }),
+    [tasks.status.set]: produce((draft, action) => {
+      const { payload } = action;
+
+      if (payload.isRecording) {
+        draft.history = pushToTasksHistory(draft.history, draft.list);
+      }
+
+      draft.status = { ...draft.status, ...payload };
+    }),
+    [tasks.history.delete]: produce(draft => {
+      draft.history = [];
+    }),
+    [combineActions(tasks.create, tasks.update, tasks.delete)]: produce(
+      (draft, action) => {
+        if (draft.status.isRecording) {
+          draft.history = pushToTasksHistory(draft.history, action);
+        }
+      }
+    ),
   },
   INITIAL_STATE
 );

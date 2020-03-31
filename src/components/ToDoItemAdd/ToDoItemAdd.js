@@ -7,12 +7,13 @@ import SimpleButton from '../SimpleButton';
 import { buttonGroupCss } from '../../const/commonStyles';
 
 const renderErrors = errors =>
-  Object.values(errors).map(error => {
-    return <div key={error.message}>{error.message}</div>;
-  });
+  Object.values(errors).map(error => (
+    <div key={error.message}>{error.message}</div>
+  ));
 
 const ToDoItemAdd = ({ item, onCancel, onSubmit }) => {
   const { register, handleSubmit, errors } = useForm();
+
   const { name, description, id } = item;
 
   return (
