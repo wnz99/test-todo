@@ -1,4 +1,4 @@
-const pushToTasksHistory = (prevHistory, data) => {
+const pushToHistory = (prevHistory, data) => {
   if (!data.type) {
     const { list, last } = data;
     const historyEntry = {
@@ -20,4 +20,4 @@ const pushToTasksHistory = (prevHistory, data) => {
   return [...prevHistory, historyEntry];
 };
 
-export default pushToTasksHistory;
+export default pushToHistory;

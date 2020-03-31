@@ -1,6 +1,6 @@
-import pushToTasksHistory from '../pushToTasksHistory';
+import pushToHistory from '../pushToHistory';
 
-describe('pushToTasksHistory function', () => {
+describe('pushToHistory function', () => {
   it('should save an action', () => {
     const prevHistory = [];
 
@@ -16,7 +16,7 @@ describe('pushToTasksHistory function', () => {
       },
     ];
 
-    let nextHistory = pushToTasksHistory(prevHistory, action);
+    let nextHistory = pushToHistory(prevHistory, action);
 
     expect(nextHistory).toEqual(expectedHistory);
 
@@ -33,7 +33,7 @@ describe('pushToTasksHistory function', () => {
       },
     ];
 
-    nextHistory = pushToTasksHistory(nextHistory, action);
+    nextHistory = pushToHistory(nextHistory, action);
 
     expect(nextHistory).toEqual(expectedHistory);
   });
@@ -51,7 +51,7 @@ describe('pushToTasksHistory function', () => {
       },
     ];
 
-    let nextHistory = pushToTasksHistory(prevHistory, { list, last });
+    let nextHistory = pushToHistory(prevHistory, { list, last });
 
     expect(nextHistory).toEqual(expectedHistory);
 
@@ -66,7 +66,7 @@ describe('pushToTasksHistory function', () => {
       },
     ];
 
-    nextHistory = pushToTasksHistory(nextHistory, { list, last });
+    nextHistory = pushToHistory(nextHistory, { list, last });
 
     expect(nextHistory).toEqual(expectedHistory);
   });
