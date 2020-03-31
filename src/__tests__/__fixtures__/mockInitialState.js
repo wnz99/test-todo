@@ -1,5 +1,6 @@
 export const mockInitialState = {
   tasks: {
+    status: { isRecording: false, isPlaying: false },
     last: {
       id: 3,
       createdAt: 1585554146,

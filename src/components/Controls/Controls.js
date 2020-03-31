@@ -1,37 +1,57 @@
+/* eslint-disable react/jsx-curly-newline */
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import SimpleButton from '../SimpleButton';
 import { buttonGroupCss } from '../../const/commonStyles';
 import ToolTip from '../ToolTip';
+import actions from '../../store/actions';
+
+const { tasks } = actions;
 
 const Controls = ({ onAddItem }) => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const dispatch = useDispatch();
+  const { isRecording, isPlaying } = useSelector(state => state.tasks.status);
 
   return (
     <>
       <ToolTip content="Record">
         <SimpleButton
-          icon="circle"
+          icon={isRecording ? 'stop-circle' : 'circle'}
           intent="danger"
           active={isRecording}
-          onClick={() => setIsRecording(status => !status)}
+          onClick={() =>
+            dispatch(tasks.status.set({ isRecording: !isRecording }))
+          }
           className={buttonGroupCss.className}
+          disabled={isPlaying}
         >
-          Record
+          {isRecording ? 'Recording..' : 'Record'}
         </SimpleButton>
       </ToolTip>
 
+      <ToolTip content="Clear">
+        <SimpleButton
+          icon="delete"
+          intent="danger"
+          className={buttonGroupCss.className}
+          onClick={() => dispatch(tasks.history.delete())}
+          disabled={isPlaying || isRecording}
+        >
+          Clear
+        </SimpleButton>
+      </ToolTip>
       <ToolTip content="Play">
         <SimpleButton
           icon="play"
           intent="primary"
           active={isPlaying}
-          onClick={() => setIsPlaying(status => !status)}
+          onClick={() => dispatch(tasks.status.set({ isPlaying: !isPlaying }))}
           className={buttonGroupCss.className}
+          disabled={isRecording}
         >
-          Play
+          {isPlaying ? 'Playing..' : 'Play'}
         </SimpleButton>
       </ToolTip>
 
@@ -41,6 +61,7 @@ const Controls = ({ onAddItem }) => {
           intent="none"
           onClick={onAddItem}
           className={buttonGroupCss.className}
+          disabled={isPlaying}
         >
           New
         </SimpleButton>

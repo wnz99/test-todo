@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 
 import ToDoItemView from '../ToDoItemView';
 import ToDoItemAdd from '../ToDoItemAdd';
-import Actions from '../../store/actions';
-import { onSaveTask, onDeleteTask } from '../../../utils/forms';
+import actions from '../../store/actions';
+import { onSaveTask, onDeleteTask } from '../../utils/forms';
 
-const { tasks } = Actions;
+const { tasks } = actions;
 
 const ToDoItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -18,8 +18,6 @@ const ToDoItem = ({ item }) => {
 
   const onDelete = useCallback(onDeleteTask(dispatch, tasks), [dispatch]);
 
-  const onSubmit = useCallback(onSaveTask(dispatch, tasks), [dispatch]);
-
   return (
     <>
       <div className={isEdit ? 'fadein' : 'fadeout'}>
@@ -27,7 +25,7 @@ const ToDoItem = ({ item }) => {
           <ToDoItemAdd
             item={item}
             onCancel={() => setIsEdit(false)}
-            onSubmit={onSubmit}
+            onSubmit={data => onSaveTask(dispatch, tasks)(data)}
           />
         )}
       </div>

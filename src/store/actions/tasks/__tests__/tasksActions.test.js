@@ -44,4 +44,34 @@ describe('tasks actions', () => {
 
     expect(action).toEqual(expecteAction);
   });
+  it('should create an action to make a snapshot', () => {
+    const expecteAction = {
+      type: 'SNAPSHOT_CREATE',
+      payload: undefined,
+    };
+
+    const action = tasks.snapshot.create();
+
+    expect(action).toEqual(expecteAction);
+  });
+  it('should create an action to set status', () => {
+    const expecteAction = {
+      type: 'STATUS_SET',
+      payload: { isRecording: true },
+    };
+
+    const action = tasks.status.set({ isRecording: true });
+
+    expect(action).toEqual(expecteAction);
+  });
+  it('should delete history', () => {
+    const expecteAction = {
+      type: 'HISTORY_DELETE',
+      payload: undefined,
+    };
+
+    const action = tasks.history.delete();
+
+    expect(action).toEqual(expecteAction);
+  });
 });

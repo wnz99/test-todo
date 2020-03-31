@@ -18,6 +18,7 @@ const SimpleButton = ({
   active,
   responsive,
   minimal,
+  disabled,
 }) => {
   const IconImg = Icon[icon];
 
@@ -32,6 +33,7 @@ const SimpleButton = ({
           'btn',
           buttonIntent[intent],
           minimal ? 'minimal' : '',
+          disabled ? 'disabled' : '',
           className
         )}
       >
@@ -141,6 +143,19 @@ const SimpleButton = ({
           }
         `}
       </style>
+      <style jsx>
+        {`
+          .disabled {
+            pointer-events: none;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: #f5f5f5;
+            border-color: #d9d9d9;
+            text-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+          }
+        `}
+      </style>
     </>
   );
 };
@@ -154,6 +169,7 @@ SimpleButton.propTypes = {
   minimal: PropTypes.bool,
   onClick: PropTypes.func,
   responsive: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 SimpleButton.defaultProps = {
@@ -164,6 +180,7 @@ SimpleButton.defaultProps = {
   minimal: false,
   onClick: () => {},
   responsive: true,
+  disabled: false,
 };
 
 export default SimpleButton;

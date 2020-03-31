@@ -5,6 +5,15 @@ const tasks = createActions(
     CREATE: task => task,
     UPDATE: task => task,
     DELETE: id => id,
+    SNAPSHOT: {
+      CREATE: undefined,
+    },
+    STATUS: {
+      SET: status => status,
+    },
+    HISTORY: {
+      DELETE: undefined,
+    },
   },
   { namespace: '_' }
 );

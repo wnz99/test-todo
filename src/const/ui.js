@@ -1,4 +1,13 @@
-import { Play, Circle, Plus, X, Save, Edit2, Trash } from 'react-feather';
+import {
+  Play,
+  Circle,
+  Plus,
+  X,
+  Save,
+  Edit2,
+  Trash,
+  StopCircle,
+} from 'react-feather';
 
 export const Intent = {
   NONE: 'none',
@@ -14,4 +23,5 @@ export const Icon = {
   save: Save,
   edit: Edit2,
   delete: Trash,
+  'stop-circle': StopCircle,
 };
