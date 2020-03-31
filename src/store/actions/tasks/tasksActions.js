@@ -2,14 +2,16 @@ import { createActions } from 'redux-actions';
 
 const tasks = createActions(
   {
-    CREATE: task => task,
-    UPDATE: task => task,
-    DELETE: id => id,
+    CREATE: undefined,
+    UPDATE: undefined,
+    DELETE: undefined,
     SNAPSHOT: {
-      CREATE: undefined,
+      RESTORE: undefined,
     },
     STATUS: {
-      SET: status => status,
+      SET: undefined,
+      PLAY: undefined,
+      RECORD: undefined,
     },
     HISTORY: {
       DELETE: undefined,

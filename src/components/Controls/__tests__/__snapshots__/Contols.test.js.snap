@@ -16,306 +16,57 @@ exports[`Controls component should render correctly 1`] = `
   <Controls
     onAddItem={[MockFunction]}
   >
-    <ToolTip
-      content="Record"
+    <SimpleButton
+      active={false}
+      className=""
+      disabled={false}
+      icon="circle"
+      intent="danger"
+      minimal={false}
+      onClick={[Function]}
+      responsive={true}
     >
       <div
-        className="btn btn-primary tooltip"
+        className="btn btn-danger"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
       >
-        <SimpleButton
-          active={false}
-          className=""
-          disabled={false}
-          icon="circle"
-          intent="danger"
-          minimal={false}
-          onClick={[Function]}
-          responsive={true}
-        >
-          <div
-            className="btn btn-danger"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <span
-              className="btn-text"
-            >
-              Record
-            </span>
-            <span
-              className="btn-img"
-            >
-              <Circle
-                color="currentColor"
-                size="24"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                  />
-                </svg>
-              </Circle>
-            </span>
-          </div>
-          <style>
-            
-          .btn {
-            line-height: 1.5715;
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
-            white-space: nowrap;
-            text-align: center;
-            background-image: none;
-            border: 1px solid transparent;
-            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
-            cursor: pointer;
-            -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            height: 32px;
-            padding: 2px 10px;
-            font-size: 14px;
-            border-radius: 2px;
-            color: rgba(0, 0, 0, 0.65);
-            background-color: #fff;
-            border-color: #d9d9d9;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            opacity: 0.8;
-          }
-          .btn:focus {
-            outline: 0;
-          }
-          .btn:active {
-            outline: 0;
-          }
-          .btn:hover {
-            opacity: 1;
-          }
-          .btn-primary {
-            border-color: #1890ff;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-            opacity: 0.8;
-          }
-          .btn-primary:hover {
-            opacity: 1;
-          }
-          .btn-danger {
-            border-color: #ff7875;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
-            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
-            opacity: 0.8;
-          }
-          .btn-danger:hover {
-            opacity: 1;
-          }
-          .btn-img {
-            display: flex;
-            align-items: center;
-          }
-          .minimal {
-            border: none;
-            box-shadow: none;
-          }
-        
-          </style>
-          <style>
-            
-          .btn {
-            min-width: 0px;
-          }
-          .btn-text {
-            display: none;
-          }
-          .btn-primary {
-            color: #40a9ff;
-            background-color: #fff;
-          }
-          .btn-danger {
-            color: #ff4d4f;
-            background-color: #fff;
-          }
-          @media (--desktop) {
-            .btn {
-              min-width: 100px;
-            }
-            .btn-text {
-              display: inline;
-              width: 100%;
-            }
-            .btn-img {
-              display: none;
-            }
-          }
-        
-          </style>
-          <style>
-            
-          .disabled {
-            pointer-events: none;
-            color: rgba(0, 0, 0, 0.25);
-            background-color: #f5f5f5;
-            border-color: #d9d9d9;
-            text-shadow: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-          }
-        
-          </style>
-        </SimpleButton>
-        <div
-          className="bottom"
+        <span
+          className="btn-text"
         >
           Record
-          <i />
-        </div>
+        </span>
+        <span
+          className="btn-img"
+        >
+          <Circle
+            color="currentColor"
+            size="24"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+              />
+            </svg>
+          </Circle>
+        </span>
       </div>
       <style>
         
-          .tooltip {
-            display: inline-block;
-            position: relative;
-          }
-
-          .tooltip .bottom {
-            min-width: 100px;
-            top: 52px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #000000;
-            font-weight: normal;
-            font-size: 13px;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 99999999;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.8s;
-            text-align: center;
-          }
-
-          .tooltip:hover .bottom {
-            visibility: visible;
-            opacity: 1;
-          }
-
-          .tooltip .bottom i {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -12px;
-            width: 24px;
-            height: 12px;
-            overflow: hidden;
-          }
-
-          .tooltip .bottom i::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            left: 50%;
-            transform: translate(-50%, 50%) rotate(45deg);
-            background-color: #000000;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-          }
-          @media (--desktop) {
-            .tooltip .bottom {
-              display: none;
-            }
-          }
-        
-      </style>
-    </ToolTip>
-    <ToolTip
-      content="Clear"
-    >
-      <div
-        className="btn btn-primary tooltip"
-      >
-        <SimpleButton
-          active={false}
-          className=""
-          disabled={false}
-          icon="delete"
-          intent="danger"
-          minimal={false}
-          onClick={[Function]}
-          responsive={true}
-        >
-          <div
-            className="btn btn-danger"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <span
-              className="btn-text"
-            >
-              Clear
-            </span>
-            <span
-              className="btn-img"
-            >
-              <Trash
-                color="currentColor"
-                size="24"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polyline
-                    points="3 6 5 6 21 6"
-                  />
-                  <path
-                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                  />
-                </svg>
-              </Trash>
-            </span>
-          </div>
-          <style>
-            
           .btn {
             line-height: 1.5715;
             position: relative;
@@ -386,9 +137,9 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .btn {
             min-width: 0px;
           }
@@ -416,9 +167,9 @@ exports[`Controls component should render correctly 1`] = `
             }
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .disabled {
             pointer-events: none;
             color: rgba(0, 0, 0, 0.25);
@@ -429,133 +180,60 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-        </SimpleButton>
-        <div
-          className="bottom"
+      </style>
+    </SimpleButton>
+    <SimpleButton
+      active={false}
+      className=""
+      disabled={false}
+      icon="delete"
+      intent="danger"
+      minimal={false}
+      onClick={[Function]}
+      responsive={true}
+    >
+      <div
+        className="btn btn-danger"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          className="btn-text"
         >
           Clear
-          <i />
-        </div>
+        </span>
+        <span
+          className="btn-img"
+        >
+          <Trash
+            color="currentColor"
+            size="24"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="3 6 5 6 21 6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </Trash>
+        </span>
       </div>
       <style>
         
-          .tooltip {
-            display: inline-block;
-            position: relative;
-          }
-
-          .tooltip .bottom {
-            min-width: 100px;
-            top: 52px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #000000;
-            font-weight: normal;
-            font-size: 13px;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 99999999;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.8s;
-            text-align: center;
-          }
-
-          .tooltip:hover .bottom {
-            visibility: visible;
-            opacity: 1;
-          }
-
-          .tooltip .bottom i {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -12px;
-            width: 24px;
-            height: 12px;
-            overflow: hidden;
-          }
-
-          .tooltip .bottom i::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            left: 50%;
-            transform: translate(-50%, 50%) rotate(45deg);
-            background-color: #000000;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-          }
-          @media (--desktop) {
-            .tooltip .bottom {
-              display: none;
-            }
-          }
-        
-      </style>
-    </ToolTip>
-    <ToolTip
-      content="Play"
-    >
-      <div
-        className="btn btn-primary tooltip"
-      >
-        <SimpleButton
-          active={false}
-          className=""
-          disabled={false}
-          icon="play"
-          intent="primary"
-          minimal={false}
-          onClick={[Function]}
-          responsive={true}
-        >
-          <div
-            className="btn btn-primary"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <span
-              className="btn-text"
-            >
-              Play
-            </span>
-            <span
-              className="btn-img"
-            >
-              <Play
-                color="currentColor"
-                size="24"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polygon
-                    points="5 3 19 12 5 21 5 3"
-                  />
-                </svg>
-              </Play>
-            </span>
-          </div>
-          <style>
-            
           .btn {
             line-height: 1.5715;
             position: relative;
@@ -626,9 +304,9 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .btn {
             min-width: 0px;
           }
@@ -656,9 +334,9 @@ exports[`Controls component should render correctly 1`] = `
             }
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .disabled {
             pointer-events: none;
             color: rgba(0, 0, 0, 0.25);
@@ -669,142 +347,57 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-        </SimpleButton>
-        <div
-          className="bottom"
+      </style>
+    </SimpleButton>
+    <SimpleButton
+      active={false}
+      className=""
+      disabled={false}
+      icon="play"
+      intent="primary"
+      minimal={false}
+      onClick={[Function]}
+      responsive={true}
+    >
+      <div
+        className="btn btn-primary"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          className="btn-text"
         >
           Play
-          <i />
-        </div>
+        </span>
+        <span
+          className="btn-img"
+        >
+          <Play
+            color="currentColor"
+            size="24"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="5 3 19 12 5 21 5 3"
+              />
+            </svg>
+          </Play>
+        </span>
       </div>
       <style>
         
-          .tooltip {
-            display: inline-block;
-            position: relative;
-          }
-
-          .tooltip .bottom {
-            min-width: 100px;
-            top: 52px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #000000;
-            font-weight: normal;
-            font-size: 13px;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 99999999;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.8s;
-            text-align: center;
-          }
-
-          .tooltip:hover .bottom {
-            visibility: visible;
-            opacity: 1;
-          }
-
-          .tooltip .bottom i {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -12px;
-            width: 24px;
-            height: 12px;
-            overflow: hidden;
-          }
-
-          .tooltip .bottom i::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            left: 50%;
-            transform: translate(-50%, 50%) rotate(45deg);
-            background-color: #000000;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-          }
-          @media (--desktop) {
-            .tooltip .bottom {
-              display: none;
-            }
-          }
-        
-      </style>
-    </ToolTip>
-    <ToolTip
-      content="New"
-    >
-      <div
-        className="btn btn-primary tooltip"
-      >
-        <SimpleButton
-          active={false}
-          className=""
-          disabled={false}
-          icon="plus"
-          intent="none"
-          minimal={false}
-          onClick={[MockFunction]}
-          responsive={true}
-        >
-          <div
-            className="btn"
-            onClick={[MockFunction]}
-            onKeyDown={[MockFunction]}
-            role="button"
-            tabIndex={0}
-          >
-            <span
-              className="btn-text"
-            >
-              New
-            </span>
-            <span
-              className="btn-img"
-            >
-              <Plus
-                color="currentColor"
-                size="24"
-              >
-                <svg
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line
-                    x1="12"
-                    x2="12"
-                    y1="5"
-                    y2="19"
-                  />
-                  <line
-                    x1="5"
-                    x2="19"
-                    y1="12"
-                    y2="12"
-                  />
-                </svg>
-              </Plus>
-            </span>
-          </div>
-          <style>
-            
           .btn {
             line-height: 1.5715;
             position: relative;
@@ -875,9 +468,9 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .btn {
             min-width: 0px;
           }
@@ -905,9 +498,9 @@ exports[`Controls component should render correctly 1`] = `
             }
           }
         
-          </style>
-          <style>
-            
+      </style>
+      <style>
+        
           .disabled {
             pointer-events: none;
             color: rgba(0, 0, 0, 0.25);
@@ -918,78 +511,181 @@ exports[`Controls component should render correctly 1`] = `
             box-shadow: none;
           }
         
-          </style>
-        </SimpleButton>
-        <div
-          className="bottom"
+      </style>
+    </SimpleButton>
+    <SimpleButton
+      active={false}
+      className=""
+      disabled={false}
+      icon="plus"
+      intent="none"
+      minimal={false}
+      onClick={[MockFunction]}
+      responsive={true}
+    >
+      <div
+        className="btn"
+        onClick={[MockFunction]}
+        onKeyDown={[MockFunction]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          className="btn-text"
         >
           New
-          <i />
-        </div>
+        </span>
+        <span
+          className="btn-img"
+        >
+          <Plus
+            color="currentColor"
+            size="24"
+          >
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="12"
+                x2="12"
+                y1="5"
+                y2="19"
+              />
+              <line
+                x1="5"
+                x2="19"
+                y1="12"
+                y2="12"
+              />
+            </svg>
+          </Plus>
+        </span>
       </div>
       <style>
         
-          .tooltip {
-            display: inline-block;
+          .btn {
+            line-height: 1.5715;
             position: relative;
-          }
-
-          .tooltip .bottom {
-            min-width: 100px;
-            top: 52px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #000000;
-            font-weight: normal;
-            font-size: 13px;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 99999999;
-            box-sizing: border-box;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.8s;
+            display: inline-block;
+            font-weight: 700;
+            white-space: nowrap;
             text-align: center;
+            background-image: none;
+            border: 1px solid transparent;
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+            cursor: pointer;
+            -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            height: 32px;
+            padding: 2px 10px;
+            font-size: 14px;
+            border-radius: 2px;
+            color: rgba(0, 0, 0, 0.65);
+            background-color: #fff;
+            border-color: #d9d9d9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0.8;
           }
-
-          .tooltip:hover .bottom {
-            visibility: visible;
+          .btn:focus {
+            outline: 0;
+          }
+          .btn:active {
+            outline: 0;
+          }
+          .btn:hover {
             opacity: 1;
           }
-
-          .tooltip .bottom i {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -12px;
-            width: 24px;
-            height: 12px;
-            overflow: hidden;
+          .btn-primary {
+            border-color: #1890ff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            opacity: 0.8;
           }
-
-          .tooltip .bottom i::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            left: 50%;
-            transform: translate(-50%, 50%) rotate(45deg);
-            background-color: #000000;
-            border: 1px solid #000000;
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+          .btn-primary:hover {
+            opacity: 1;
+          }
+          .btn-danger {
+            border-color: #ff7875;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+            -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+            opacity: 0.8;
+          }
+          .btn-danger:hover {
+            opacity: 1;
+          }
+          .btn-img {
+            display: flex;
+            align-items: center;
+          }
+          .minimal {
+            border: none;
+            box-shadow: none;
+          }
+        
+      </style>
+      <style>
+        
+          .btn {
+            min-width: 0px;
+          }
+          .btn-text {
+            display: none;
+          }
+          .btn-primary {
+            color: #40a9ff;
+            background-color: #fff;
+          }
+          .btn-danger {
+            color: #ff4d4f;
+            background-color: #fff;
           }
           @media (--desktop) {
-            .tooltip .bottom {
+            .btn {
+              min-width: 100px;
+            }
+            .btn-text {
+              display: inline;
+              width: 100%;
+            }
+            .btn-img {
               display: none;
             }
           }
         
       </style>
-    </ToolTip>
+      <style>
+        
+          .disabled {
+            pointer-events: none;
+            color: rgba(0, 0, 0, 0.25);
+            background-color: #f5f5f5;
+            border-color: #d9d9d9;
+            text-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+          }
+        
+      </style>
+    </SimpleButton>
   </Controls>
 </Provider>
 `;
