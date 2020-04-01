@@ -26,8 +26,16 @@ const SimpleButton = ({
     <>
       <div
         role="button"
-        onClick={onClick}
-        onKeyDown={onClick}
+        onClick={e => {
+          e.preventDefault();
+          onClick();
+        }}
+        onKeyDown={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            onClick();
+          }
+        }}
         tabIndex={0}
         className={classNames(
           'btn',
@@ -76,6 +84,7 @@ const SimpleButton = ({
           }
           .btn:focus {
             outline: 0;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
           }
           .btn:active {
             outline: 0;
@@ -93,6 +102,10 @@ const SimpleButton = ({
           .btn-primary:hover {
             opacity: 1;
           }
+          .btn-primary:focus {
+            outline: 0;
+            box-shadow: 0 2px 0 rgba(24, 144, 255, 0.5);
+          }
           .btn-danger {
             border-color: #ff7875;
             text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -102,6 +115,10 @@ const SimpleButton = ({
           }
           .btn-danger:hover {
             opacity: 1;
+          }
+          .btn-danger:focus {
+            outline: 0;
+            box-shadow: 0 2px 0 rgba(255, 120, 117, 0.5);
           }
           .btn-img {
             display: flex;
