@@ -1,7 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src'],
+  mode: 'production',
+  devtool: 'none',
   module: {
     rules: [
       {
@@ -28,7 +31,11 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    mangleWasmImports: true,
+  },
   plugins: [
+    new LodashModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',

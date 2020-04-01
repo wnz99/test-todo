@@ -5,9 +5,6 @@ import omit from 'lodash/omit';
 
 import actions from '../../actions';
 import { pushToHistory } from '../../../utils';
-import { mockInitialState } from '../../../__tests__/__fixtures__/mockInitialState';
-
-export const INITIAL_STATE_DEV = mockInitialState;
 
 export const INITIAL_STATE = {
   status: { isRecording: false, isPlaying: false },
