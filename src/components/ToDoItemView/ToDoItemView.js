@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import moment from 'moment';
 
 import SimpleButton from '../SimpleButton';
 
 const ToDoItemView = ({ item, onEdit, onDelete }) => {
   const { id, name, description, createdAt } = item;
+
   return (
     <>
       <article className="item-container">
@@ -26,8 +26,8 @@ const ToDoItemView = ({ item, onEdit, onDelete }) => {
           </div>
         </header>
         <div className="item-date">
-          <time dateTime={moment(createdAt).toISOString()}>
-            {moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+          <time dateTime={new Date(createdAt).toISOString()}>
+            {new Date(createdAt).toUTCString()}
           </time>
         </div>
         <section>

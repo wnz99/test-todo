@@ -11,6 +11,7 @@ import { of, from } from 'rxjs';
 import { ofType } from 'redux-observable';
 
 import actions from '../actions';
+import { makeSnapshotState } from '../../utils';
 
 const { tasks } = actions;
 
@@ -24,10 +25,20 @@ const playHistoryEpic = (action$, state$) =>
         concatMap((item, index) =>
           of(item).pipe(delay(index === 0 ? 0 : DELAY))
         ),
-        map(item => {
-          const { isSnapshot, data } = item;
-          if (isSnapshot) {
-            return tasks.snapshot.restore(data);
+        map((item, index) => {
+          const { isPatch, data } = item;
+
+          if (isPatch) {
+            const history = [...state$.value.tasks.history, item];
+            const patchesIndex = [...data.last.patchesIndex, index];
+
+            const lastSnapshotState = makeSnapshotState(history, patchesIndex);
+
+            const payload = {
+              list: { ...lastSnapshotState.list },
+              last: { ...data.last },
+            };
+            return tasks.snapshot.restore(payload);
           }
 
           return data;

@@ -10,7 +10,7 @@ export const mockInitialState = {
     },
     history: [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: {
           last: { id: 3, createdAt: 1585554146 },
           list: {
@@ -39,7 +39,7 @@ export const mockInitialState = {
         },
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: {
           type: 'CREATE',
           payload: {
@@ -50,7 +50,7 @@ export const mockInitialState = {
         },
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: {
           type: 'CREATE',
           payload: {
@@ -61,7 +61,7 @@ export const mockInitialState = {
         },
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: {
           type: 'CREATE',
           payload: {

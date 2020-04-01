@@ -80,7 +80,7 @@ describe('SimpleButton component', () => {
 
     const wrapper = mount(<SimpleButton {...props}>Button</SimpleButton>);
 
-    wrapper.find(`.btn`).prop('onClick')();
+    wrapper.find(`.btn`).simulate('click', { preventDefault() {} });
     expect(props.onClick).toHaveBeenCalled();
   });
 });

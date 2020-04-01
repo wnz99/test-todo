@@ -3,6 +3,11 @@ import { StateObservable } from 'redux-observable';
 
 import playHistoryEpic from '../playHistoryEpic';
 import actions from '../../actions';
+import makeSnapshotState from '../../../utils/makeShapshotState';
+
+jest.mock('../../../utils/makeShapshotState');
+
+makeSnapshotState.mockReturnValue({ list: {} });
 
 const { tasks } = actions;
 
@@ -20,24 +25,28 @@ describe('playHistoryEpic function', () => {
       { type: 'ADD1' },
       { type: 'ADD2' },
       { type: 'ADD3' },
-      'snapshot',
+      {
+        last: {
+          patchesIndex: [],
+        },
+      },
     ];
 
     const mockHistory = [
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[0],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[1],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[2],
       },
       {
-        isSnapshot: true,
+        isPatch: true,
         data: mockData[3],
       },
     ];
@@ -71,7 +80,7 @@ describe('playHistoryEpic function', () => {
         c: {
           ...mockData[2],
         },
-        d: tasks.snapshot.restore(mockData[3]),
+        d: tasks.snapshot.restore({ ...mockData[3], list: {} }),
         e: tasks.status.play(false),
       };
 
@@ -87,15 +96,15 @@ describe('playHistoryEpic function', () => {
 
     const mockHistory = [
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[0],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[1],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[2],
       },
     ];
