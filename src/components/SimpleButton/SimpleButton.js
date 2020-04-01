@@ -46,7 +46,7 @@ const SimpleButton = ({
         )}
       >
         <span className="btn-text">{children}</span>
-        <span className="btn-img">{icon && <IconImg />}</span>
+        <span className="btn-img">{icon && responsive && <IconImg />}</span>
       </div>
       <style jsx>
         {`
@@ -79,7 +79,7 @@ const SimpleButton = ({
             border-color: #d9d9d9;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             opacity: 0.8;
           }
           .btn:focus {

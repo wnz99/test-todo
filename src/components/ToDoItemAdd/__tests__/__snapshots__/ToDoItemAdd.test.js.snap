@@ -120,7 +120,7 @@ exports[`ToDoItemAdd component should render correctly 1`] = `
             border-color: #d9d9d9;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             opacity: 0.8;
           }
           .btn:focus {
@@ -272,7 +272,7 @@ exports[`ToDoItemAdd component should render correctly 1`] = `
             border-color: #d9d9d9;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             opacity: 0.8;
           }
           .btn:focus {
