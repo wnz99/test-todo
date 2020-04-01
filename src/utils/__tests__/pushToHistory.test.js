@@ -11,7 +11,7 @@ describe('pushToHistory function', () => {
 
     let expectedHistory = [
       {
-        isSnapshot: false,
+        isPatch: false,
         data: action,
       },
     ];
@@ -28,7 +28,7 @@ describe('pushToHistory function', () => {
     expectedHistory = [
       ...expectedHistory,
       {
-        isSnapshot: false,
+        isPatch: false,
         data: action,
       },
     ];
@@ -46,7 +46,7 @@ describe('pushToHistory function', () => {
 
     let expectedHistory = [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: { last, list },
       },
     ];
@@ -61,7 +61,7 @@ describe('pushToHistory function', () => {
     expectedHistory = [
       ...expectedHistory,
       {
-        isSnapshot: true,
+        isPatch: true,
         data: { last, list },
       },
     ];

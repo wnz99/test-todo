@@ -46,8 +46,8 @@ const App = () => {
       <style jsx>
         {`
           .app {
-            margin-right: 5px;
-            margin-left: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
           }
           .controls {
             display: flex;
@@ -56,7 +56,7 @@ const App = () => {
           }
           @media (--desktop) {
             .app {
-              width: 900px;
+              max-width: 900px;
               margin: auto;
             }
           }

@@ -14,6 +14,7 @@ export const INITIAL_STATE = {
   last: {
     id: 0,
     createdAt: null,
+    patchesIndex: [],
   },
   history: [],
   list: {},
@@ -58,6 +59,7 @@ const tasksReducer = handleActions(
 
       if (payload) {
         draft.history = pushToHistory(draft.history, draft);
+        draft.last.patchesIndex.push(draft.history.length - 1);
       }
 
       draft.status = { ...draft.status, isRecording: payload };

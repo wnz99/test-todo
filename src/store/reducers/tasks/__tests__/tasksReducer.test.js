@@ -258,7 +258,7 @@ describe('tasks reducer', () => {
 
     const expectedHistory = [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: { list: nextState.list, last: nextState.last },
       },
     ];
@@ -352,7 +352,7 @@ describe('tasks reducer', () => {
 
     const expectedHistory = [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: { list: nextState.list, last: nextState.last },
       },
     ];
@@ -465,7 +465,7 @@ describe('tasks reducer', () => {
 
     let expectedHistory = [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: { list: nextState.list, last: nextState.last },
       },
     ];
@@ -505,7 +505,7 @@ describe('tasks reducer', () => {
     };
 
     expectedHistory = {
-      isSnapshot: false,
+      isPatch: false,
       data: {
         ...addTaskAction,
         type: addTaskAction.type.toString(),
@@ -543,7 +543,7 @@ describe('tasks reducer', () => {
     };
 
     expectedHistory = {
-      isSnapshot: false,
+      isPatch: false,
       data: {
         ...addTaskAction,
         type: addTaskAction.type.toString(),
@@ -582,7 +582,7 @@ describe('tasks reducer', () => {
     };
 
     expectedHistory = {
-      isSnapshot: false,
+      isPatch: false,
       data: {
         ...addTaskAction,
         type: addTaskAction.type.toString(),
@@ -616,7 +616,7 @@ describe('tasks reducer', () => {
     };
 
     expectedHistory = {
-      isSnapshot: false,
+      isPatch: false,
       data: {
         ...addTaskAction,
         type: addTaskAction.type.toString(),
@@ -644,7 +644,7 @@ describe('tasks reducer', () => {
 
     expectedHistory = [
       {
-        isSnapshot: true,
+        isPatch: true,
         data: nextState.list,
       },
     ];

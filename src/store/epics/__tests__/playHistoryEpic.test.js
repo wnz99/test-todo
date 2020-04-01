@@ -25,19 +25,19 @@ describe('playHistoryEpic function', () => {
 
     const mockHistory = [
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[0],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[1],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[2],
       },
       {
-        isSnapshot: true,
+        isPatch: true,
         data: mockData[3],
       },
     ];
@@ -87,15 +87,15 @@ describe('playHistoryEpic function', () => {
 
     const mockHistory = [
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[0],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[1],
       },
       {
-        isSnapshot: false,
+        isPatch: false,
         data: mockData[2],
       },
     ];
