@@ -5,12 +5,9 @@ import makeSnapshotState from './makeShapshotState';
 
 const pushToHistory = (prevHistory, data) => {
   if (!data.type) {
-    const { list, last } = original(data);
+    const { list, last } = data;
 
-    const lastSnapshotState = makeSnapshotState(
-      original(prevHistory),
-      last.patchesIndex
-    );
+    const lastSnapshotState = makeSnapshotState(prevHistory, last.patchesIndex);
 
     const [nextState, patches, inversePatches] = makePatches(
       lastSnapshotState,

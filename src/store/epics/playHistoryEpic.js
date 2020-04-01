@@ -11,7 +11,7 @@ import { of, from } from 'rxjs';
 import { ofType } from 'redux-observable';
 
 import actions from '../actions';
-import makeSnapshotState from '../../utils/makeShapshotState';
+import { makeSnapshotState } from '../../utils';
 
 const { tasks } = actions;
 

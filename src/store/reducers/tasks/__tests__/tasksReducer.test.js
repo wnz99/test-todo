@@ -27,6 +27,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -54,6 +55,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [],
       },
       list: {
         ...expecteState.list,
@@ -85,6 +87,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -113,6 +116,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         ...expecteState.list,
@@ -144,6 +148,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -167,6 +172,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {},
     };
@@ -210,6 +216,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -237,6 +244,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [],
       },
       list: {
         ...expecteState.list,
@@ -259,7 +267,34 @@ describe('tasks reducer', () => {
     const expectedHistory = [
       {
         isPatch: true,
-        data: { list: nextState.list, last: nextState.last },
+        data: {
+          patches: [
+            {
+              op: 'add',
+              path: ['list', '1'],
+              value: {
+                createdAt: 100,
+                description: 'a new task',
+                id: 1,
+                name: 'test_task_1',
+                updatedAt: 100,
+              },
+            },
+            {
+              op: 'add',
+              path: ['list', '2'],
+              value: {
+                createdAt: 200,
+                description: 'a new task',
+                id: 2,
+                name: 'test_task_2',
+                updatedAt: 200,
+              },
+            },
+          ],
+
+          last: nextState.last,
+        },
       },
     ];
 
@@ -273,6 +308,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [0],
       },
       list: {
         ...expecteState.list,
@@ -304,6 +340,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -331,6 +368,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [],
       },
       list: {
         ...expecteState.list,
@@ -353,7 +391,33 @@ describe('tasks reducer', () => {
     const expectedHistory = [
       {
         isPatch: true,
-        data: { list: nextState.list, last: nextState.last },
+        data: {
+          patches: [
+            {
+              op: 'add',
+              path: ['list', '1'],
+              value: {
+                createdAt: 100,
+                description: 'a new task',
+                id: 1,
+                name: 'test_task_1',
+                updatedAt: 100,
+              },
+            },
+            {
+              op: 'add',
+              path: ['list', '2'],
+              value: {
+                createdAt: 200,
+                description: 'a new task',
+                id: 2,
+                name: 'test_task_2',
+                updatedAt: 200,
+              },
+            },
+          ],
+          last: nextState.last,
+        },
       },
     ];
 
@@ -367,6 +431,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [0],
       },
       list: {
         ...expecteState.list,
@@ -415,6 +480,7 @@ describe('tasks reducer', () => {
       last: {
         id: 1,
         createdAt: 100,
+        patchesIndex: [],
       },
       list: {
         '1': {
@@ -443,6 +509,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [],
       },
       list: {
         ...expecteState.list,
@@ -466,7 +533,33 @@ describe('tasks reducer', () => {
     let expectedHistory = [
       {
         isPatch: true,
-        data: { list: nextState.list, last: nextState.last },
+        data: {
+          patches: [
+            {
+              op: 'add',
+              path: ['list', '1'],
+              value: {
+                createdAt: 100,
+                description: 'a new task',
+                id: 1,
+                name: 'test_task_1',
+                updatedAt: 100,
+              },
+            },
+            {
+              op: 'add',
+              path: ['list', '2'],
+              value: {
+                createdAt: 200,
+                description: 'a new task',
+                id: 2,
+                name: 'test_task_2',
+                updatedAt: 200,
+              },
+            },
+          ],
+          last: nextState.last,
+        },
       },
     ];
 
@@ -480,6 +573,7 @@ describe('tasks reducer', () => {
       last: {
         id: 2,
         createdAt: 200,
+        patchesIndex: [0],
       },
       list: {
         ...expecteState.list,
@@ -517,6 +611,7 @@ describe('tasks reducer', () => {
       last: {
         id: 3,
         createdAt: 300,
+        patchesIndex: [0],
       },
       history: [...expecteState.history, expectedHistory],
       list: {
@@ -555,6 +650,7 @@ describe('tasks reducer', () => {
       last: {
         id: 4,
         createdAt: 400,
+        patchesIndex: [0],
       },
       history: [...expecteState.history, expectedHistory],
       list: {
@@ -594,6 +690,7 @@ describe('tasks reducer', () => {
       last: {
         id: 4,
         createdAt: 400,
+        patchesIndex: [0],
       },
       history: [...expecteState.history, expectedHistory],
       list: {
@@ -628,6 +725,7 @@ describe('tasks reducer', () => {
       last: {
         id: 4,
         createdAt: 400,
+        patchesIndex: [0],
       },
       history: [...expecteState.history, expectedHistory],
       list: omit(expecteState.list, ['2']),
@@ -658,6 +756,7 @@ describe('tasks reducer', () => {
       last: {
         id: 4,
         createdAt: 400,
+        patchesIndex: [0],
       },
     };
 
@@ -679,6 +778,7 @@ describe('tasks reducer', () => {
       last: {
         id: 5,
         createdAt: 500,
+        patchesIndex: [0],
       },
       list: {
         ...expecteState.list,

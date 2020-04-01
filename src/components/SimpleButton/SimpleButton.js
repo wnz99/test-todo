@@ -21,7 +21,7 @@ const SimpleButton = ({
   disabled,
 }) => {
   const IconImg = Icon[icon];
-  console.log('button');
+
   return (
     <>
       <div

@@ -13,8 +13,8 @@ exports[`SimpleButton component should render correctly 1`] = `
 >
   <div
     className="btn btn-primary"
-    onClick={[MockFunction]}
-    onKeyDown={[MockFunction]}
+    onClick={[Function]}
+    onKeyDown={[Function]}
     role="button"
     tabIndex={0}
   >
@@ -84,6 +84,7 @@ exports[`SimpleButton component should render correctly 1`] = `
           }
           .btn:focus {
             outline: 0;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
           }
           .btn:active {
             outline: 0;
@@ -101,6 +102,10 @@ exports[`SimpleButton component should render correctly 1`] = `
           .btn-primary:hover {
             opacity: 1;
           }
+          .btn-primary:focus {
+            outline: 0;
+            box-shadow: 0 2px 0 rgba(24, 144, 255, 0.5);
+          }
           .btn-danger {
             border-color: #ff7875;
             text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -110,6 +115,10 @@ exports[`SimpleButton component should render correctly 1`] = `
           }
           .btn-danger:hover {
             opacity: 1;
+          }
+          .btn-danger:focus {
+            outline: 0;
+            box-shadow: 0 2px 0 rgba(255, 120, 117, 0.5);
           }
           .btn-img {
             display: flex;

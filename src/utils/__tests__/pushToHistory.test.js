@@ -1,6 +1,18 @@
 import pushToHistory from '../pushToHistory';
+import makePatches from '../makePatches';
+import makeSnapshotState from '../makeShapshotState';
+
+jest.mock('../makePatches');
+jest.mock('../makeShapshotState');
+
+makeSnapshotState.mockReturnValue('snapshot');
+makePatches.mockReturnValue([null, 'patches', null]);
 
 describe('pushToHistory function', () => {
+  beforeEach(() => {
+    makeSnapshotState.mockClear();
+    makePatches.mockClear();
+  });
   it('should save an action', () => {
     const prevHistory = [];
 
@@ -19,6 +31,8 @@ describe('pushToHistory function', () => {
     let nextHistory = pushToHistory(prevHistory, action);
 
     expect(nextHistory).toEqual(expectedHistory);
+    expect(makeSnapshotState).not.toHaveBeenCalled();
+    expect(makePatches).not.toHaveBeenCalled();
 
     action = {
       type: 'TEST',
@@ -36,33 +50,41 @@ describe('pushToHistory function', () => {
     nextHistory = pushToHistory(nextHistory, action);
 
     expect(nextHistory).toEqual(expectedHistory);
+    expect(makeSnapshotState).not.toHaveBeenCalled();
+    expect(makePatches).not.toHaveBeenCalled();
   });
 
-  it('should save an list state', () => {
+  it('should save patches', () => {
     const prevHistory = [];
 
     let list = [1, 2, 3];
-    let last = { a: 'a' };
+    let last = { patchesIndex: [1] };
 
     let expectedHistory = [
       {
         isPatch: true,
-        data: { last, list },
+        data: { last, patches: 'patches' },
       },
     ];
 
     let nextHistory = pushToHistory(prevHistory, { list, last });
 
     expect(nextHistory).toEqual(expectedHistory);
+    expect(makeSnapshotState).toHaveBeenNthCalledWith(
+      1,
+      prevHistory,
+      last.patchesIndex
+    );
+    expect(makePatches).toHaveBeenNthCalledWith(1, 'snapshot', { list });
 
     list = [4, 5, 7];
-    last = { b: 'b' };
+    last = { patchesIndex: [2] };
 
     expectedHistory = [
       ...expectedHistory,
       {
         isPatch: true,
-        data: { last, list },
+        data: { last, patches: 'patches' },
       },
     ];
 
